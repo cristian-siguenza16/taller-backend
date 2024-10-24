@@ -8,7 +8,13 @@ async function bootstrap() {
     whitelist: true, forbidNonWhitelisted: true,
     transform: true,
   }));
+  app.enableCors({
+    origin: '*', // Permitir cualquier origen (para desarrollo)
+    methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
+  });
   
   await app.listen(process.env.PORT ?? 3000);
+  
 }
 bootstrap();
