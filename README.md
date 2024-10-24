@@ -97,3 +97,49 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+## Pasos
+crear el proyecto
+nest new taller-backend
+
+instalar dependencias iniciales
+npm install --save @nestjs/typeorm typeorm pg
+npm i --save @nestjs/config
+npm install @hapi/joi
+
+Comandos de migraciones (package.json)
+"typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+"migration:generate": "npm run typeorm migration:generate -- -d ./typeorm.config.ts",
+"migration:run": "npm run typeorm migration:run -- -d typeorm.config.ts",
+"migration:revert": "npm run typeorm migration:revert -- -d typeorm.config.ts"
+
+Agregar Nest/TypeORM (app.module)
+Crear el docker
+docker-compose.yaml
+- Comandos para docker:
+    docker-compose up -d
+    (si ya existe)
+    docker-compose start
+
+Agregar el typeorm.config.ts
+
+Crear el .env y el .env.local
+DB_HOST=localhost 
+DB_PORT=5432
+DB_NAME=url2024
+DB_USER=url
+DB_PASS=url.2024
+
+Por modulo
+	nest g module books
+	nest g service books
+	nest g controller books
+	npm install class-validator
+	npm install class-transformer
+	npm install @nestjs/mapped-types
+
+Despues de haber creado la entidad:
+npm run migration:generate src/migrations/init-data-base
+npm run migration:run
+
