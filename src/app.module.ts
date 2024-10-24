@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import * as Joi from '@hapi/joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -26,7 +27,9 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: false,
-    }),],
+    }),
+    BooksModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
